@@ -1,0 +1,4 @@
+#!/bin/bash
+
+hypercorn --keyfile example_key.pem --certfile example_cert.pem example:app --debug --bind 127.0.0.1:50000 --reload
+#uvicorn --ssl-keyfile example_key.pem --ssl-certfile example_cert.pem example:app --host 0.0.0.0 --port 50000
