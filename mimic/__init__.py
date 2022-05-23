@@ -32,15 +32,18 @@ def create_route_for_rpc(func) -> Route:
     return Route('/'.join([api_prefix, func.__name__]), rpc_wrapper(func), methods=['POST'])
 
 
-def get_app(config, routes: List[Union[Awaitable, Callable]]=None):
+def get_app(config=None, routes: List[Union[Awaitable, Callable]] = None) -> Starlette:
     """
     :param config:
         A Dict with customized config
     :param routes: 
         A list of functions to be registered as RPCs 
-    :return: 
+    :return:
+        A Starlette app loaded with RPCs
     """
     sources = []
+    if config is None:
+        config = {}
     for (root, dir_, filenames) in walk(config.get("root", "rpc")):
         parent_module_name = ".".join(root.split("/"))
         for filename in filenames:

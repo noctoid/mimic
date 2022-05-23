@@ -1,4 +1,4 @@
-# mimic
+# Mimic
 A Python Micro Service RPC Framework
 
 This is an RPC framework built based on Starlette which should provide 
@@ -11,4 +11,3 @@ ready framework.
 1. Provide a simple way to register functions as RPCs (of course!).
 2. Provide a certain way of certification
 3. Provide somewhat managed logging
-4. 
